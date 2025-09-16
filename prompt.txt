@@ -1,0 +1,75 @@
+I want you to create Requinette, and assistant that helps iteratively develop requirements according to the requirements management process taught in the following document:
+<3dse_exercise>
+{{3DSE SE_Exercise_for_Req_AI_Use_Case.pdf}}
+</3dse_exercise>
+Please analyse the document, complete each exercise, and create a report containing the complete, comprehensive solution of the exercise, and summarise your learnings to make sure you fully understand the principles.
+Create a context prompt to be passed on to an AI model as a context so it can manage and revise requirements, product breakdown structures, requirement assignments, and Requirement Verification Traceability Matrices accordingly.
+
+Here are the requirements for Requinette, the assistant I want you to create:
+
+The Assistant saves all files in an application directory in synology drive using the synology drive api.
+The user must log in to google drive before he can use the assistant.
+The Application directory on the drive is named "Requinette".
+
+The Assistant should manage different independent projects, each representing the requirements for a different product.
+The Requinette connects to AI models through openrouter.
+The AI model used to execute any tasks is configured in the settings dialogue.
+The openrouter settings can be edited on the settings dialogue.
+Any calls to an AI model must be made through openrouter.
+The settings dialogue is available through a button on the main screen.
+All settings are persisted to a file in the application directory.
+
+Each project is contained in a different project folder in the application directory. Each Project folder has a subfolder "Input Documents".
+
+The Agent manages Requirements it stores in a Project requirements File (PRF) that sits in the project folder.
+Whenever it is changed, the original version is kept and a new file is created to preserve the complete history.
+The naming convention is "YYYY-MM-DD_HH-MM[Project Name Requirements]"
+
+The PRF is a Markdown file.
+It is created according to the template in the following document:
+<prf_template>
+    {{PRF_Template.md}}
+</prf_template>
+
+All prompts to the AI model include the context prompt and the prf_template as acontext so the AI model understands how to deal with the requirements and the PRF file structure.
+
+The assistant shall support the following use cases:
+Create Project:
+	The user has to enter the project name, and a project description, and can upload a number of input documents.
+	The project is created, and the directory structure is created.
+	A PRF is created by the AI model configured in the settings, prompting it to create a PRF document	according to the template omitting the example data, adding the project name in the title and the project description in the Introduction section.
+	The new version of the document is saved.
+
+Add Input Documents:
+	The user uploads a number of input documents.
+	The input documents are saved to the input documents folder, resolving name clashes by adding a counter in parentheses to the file base name.
+	The latest version of the PRF is passed on to the AI model configured in the settings, which is prompted to:
+		1) Extract SMART requirements according to the principles of the 3dse_exercise document and add them to the PRE.
+		2) Check if any of the requirements are contradictory and point to the contradiction in the comment section.
+		3) Update the Product Breakdown Structure according to the requirements, adding or removing components if necessary.
+		4) Update the FA with the new Requirements if necessary.
+		5) Update the RVTM and add test cases for the new requirements.
+		6) Add the input documents to the References section.
+		7) Summarise the changes to the change log.
+	The new version of the document is saved.
+
+Document Check:
+	The latest version of the PRF is passed on to the AI model which is prompted to:
+		1) Check all the requirements in the PREb which are not in state "rejected" or "replaced" if they match SMART criteria. If a requirement does not meet SMART criteria, add one or more requirement that meets smart criteria. Add reference to the Commentary & Correction colum saying "Replaced by " followed by the new requirement's ID. Set the requirement state to "replaced2.
+		2) Check if any of the requirements are contradictory and point to the contradiction in the comment section.
+		3) Update the Product Breakdown Structure according to the changes if necessary.
+		4) Update the FA with the changes if necessary.
+		5) Update the RVTM and test cases to account for the changes Remove Entries for removed or rejected requirements. Add Acceptance Criteria for newly created requirements.
+		6) Add the input documents to the References section.
+		7) Summarise the changes to the change log.
+	The new version of the document is saved.
+
+Chat with the document:
+	The latest version of the PRF is passed on to the AI model which is prompted with the user prompt.
+    The new version of the document is saved.
+
+
+The UI has a dropdown to switch between the projects, and an "Add Project" Button next to it.
+The UI has a dropdown to switch between the different document versions. There is a "View Document" button next to the dropdown which shows the document text as saved on google drive.
+
+
