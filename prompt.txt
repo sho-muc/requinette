@@ -8,7 +8,7 @@ Create a context prompt to be passed on to an AI model as a context so it can ma
 Here are the requirements for Requinette, the assistant I want you to create:
 
 The Assistant saves all files in an application directory in synology drive using the synology drive api.
-The user must log in to google drive before he can use the assistant.
+The user must log in to synology drive before he can use the assistant.
 The Application directory on the drive is named "Requinette".
 
 The Assistant should manage different independent projects, each representing the requirements for a different product.
@@ -70,6 +70,6 @@ Chat with the document:
 
 
 The UI has a dropdown to switch between the projects, and an "Add Project" Button next to it.
-The UI has a dropdown to switch between the different document versions. There is a "View Document" button next to the dropdown which shows the document text as saved on google drive.
+The UI has a dropdown to switch between the different document versions. There is a "View Document" button next to the dropdown which shows the document text as saved on synology drive.
 
 
