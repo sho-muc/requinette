@@ -28,7 +28,7 @@ The naming convention is "YYYY-MM-DD_HH-MM[Project Name Requirements]"
 The PRF is a Markdown file.
 It is created according to the template in the following document:
 <prf_template>
-    {{PRF_Template.md}}
+    {{PRF_Template.txt}}
 </prf_template>
 
 All prompts to the AI model include the context prompt and the prf_template as acontext so the AI model understands how to deal with the requirements and the PRF file structure.
