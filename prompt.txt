@@ -55,7 +55,7 @@ Add Input Documents:
 
 Document Check:
 	The latest version of the PRF is passed on to the AI model which is prompted to:
-		1) Check all the requirements in the PREb which are not in state "rejected" or "replaced" if they match SMART criteria. If a requirement does not meet SMART criteria, add one or more requirement that meets smart criteria. Add reference to the Commentary & Correction colum saying "Replaced by " followed by the new requirement's ID. Set the requirement state to "replaced2.
+		1) Check all the requirements in the PRB which are not in state "rejected" or "replaced" if they match SMART criteria. If a requirement does not meet SMART criteria, add one or more requirement that meets smart criteria. Add reference to the Commentary & Correction colum saying "Replaced by " followed by the new requirement's ID. Set the requirement state to "replaced".
 		2) Check if any of the requirements are contradictory and point to the contradiction in the comment section.
 		3) Update the Product Breakdown Structure according to the changes if necessary.
 		4) Update the FA with the changes if necessary.
